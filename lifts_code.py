@@ -1,4 +1,4 @@
-# from datetime import datetime
+from datetime import datetime
 
 
 # Job class contains details of job, will be called as customer name
@@ -7,6 +7,8 @@ class Job:
         self.time = time
         self.origin = origin
         self.destination = destination
+        now = datetime.now()
+        self.job_added = now.strftime("%H:%M")
 
     def __repr__(self):
         return "Job from {origin} to {dest} at {time}".format(origin=self.origin, dest=self.destination, time=self.time)
@@ -20,8 +22,10 @@ def add_job(name, joblist):
         return joblist, name
 
 
-
 # create an empty list to hold the jobs in
 job_list = []
-job_list, name =add_job("Will", job_list)
-print(job_list, name, name.origin)
+
+
+job_list, name = add_job("Will", job_list)
+print(job_list, name, name.)
+
