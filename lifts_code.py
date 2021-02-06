@@ -35,6 +35,10 @@ def sort_list(unsorted_list):
     return unsorted_list
 
 
+# removes completed job from front of the list
+def complete_job(joblist):
+    joblist.pop(0)
+    return joblist
 
 
 # create an empty list to hold the jobs in
