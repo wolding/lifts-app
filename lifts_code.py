@@ -1,5 +1,5 @@
 from datetime import datetime
-
+import pyinputplus as pyip
 
 # Job class contains details of job, will be called as customer name
 class Job:
@@ -16,11 +16,14 @@ class Job:
 
 # add a job to the list and return update
 def add_job(name, joblist):
-        time = input("What time do you need the lift?: hh:mm ")
-        origin, destination = input("From: "), input("To: ")
-        name = Job(time, origin, destination)
-        joblist.append(name)
-        return joblist
+    venues = ['Maison Talbooth', 'Milsoms', 'Le Talbooth']
+    # time = input("What time do you need the lift?: hh:mm ")
+    time = pyip.inputTime("Time (hh:mm):\n", formats=['%H:%M'])
+    # origin, destination = input("From: "), input("To: ")
+    origin, destination = pyip.inputMenu(venues, 'From:\n', numbered=True), pyip.inputMenu(venues, 'To:\n',numbered=True)
+    name = Job(time, origin, destination)
+    joblist.append(name)
+    return joblist
 
 # function to reorder jobs list by job time
 def sort_list(unsorted_list):
@@ -47,4 +50,3 @@ job_list= add_job("Will", job_list)
 job_list= add_job("Kev", job_list)
 print(sort_list(job_list))
 print(job_list)
-
